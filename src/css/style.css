@@ -8,24 +8,29 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 5px 0;
   display: flex;
-  background: #7A419B;
+  /* background: #7A419B; */
+  background: url(../../assets/images/playerbg.jpg);
   min-height: 100vh;
-  background: linear-gradient(135deg, #7a7cf4 0%,#29c4d8 48%,#4ae8c6 100%);
+  /* background: linear-gradient(135deg, #7a7cf4 0%,#29c4d8 48%,#4ae8c6 100%); */
   background-size: cover;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   cursor: grab;
 }
 
 .player {
-  max-width: 750px;
-  border: 5px solid rgba(0,0,0,0.2);
-  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  display: grid;
+  place-content: center;
+  /* max-width: 1200px; */
+  /* border: 5px solid rgba(0,0,0,0.2); */
+  /* box-shadow: 0 0 20px rgba(0,0,0,0.2); */
   position: relative;
   font-size: 0;
   overflow: hidden;
+  background: #000;
   border-radius: 5%;
 }
 
@@ -61,19 +66,22 @@ body {
 }
 
 .player__slider {
-  width: 10px;
-  height: 30px;
+  /* width: 10px; */
+  height: 40px;
 }
 
 .player__controls {
   display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: 0;
+  padding: 5px;
   width: 100%;
-  transform: translateY(100%) translateY(-5px);
+  /* transform: translateY(100%) translateY(-5px); */
   transition: all .3s;
   flex-wrap: wrap;
-  background: rgba(0,0,0,0.1);
+  background: rgba(0,0,0,0.5);
 }
 
 .player:hover .player__controls {
@@ -81,7 +89,7 @@ body {
 }
 
 .player:hover .progress {
-  height: 15px;
+  height: 5px;
 }
 
 .player__controls > * {
@@ -91,19 +99,50 @@ body {
 .progress {
   flex: 10;
   position: relative;
+  margin-bottom: 5px;
   display: flex;
   flex-basis: 100%;
   height: 5px;
   transition: height 0.3s;
-  background: rgba(0,0,0,0.5);
+  background: rgba(150, 9, 9, 0.5);
   cursor: grabbing;
 }
 
 .progress__filled {
   width: 50%;
-  background: #ffc600;
+  border-radius: 10%;
+  background: white;
   flex: 0;
   flex-basis: 0%;
+}
+
+.playButton {
+  width: 2rem;
+}
+
+.playbackRateButton{
+  max-width: 1.2rem;
+  max-height: 1.2rem;
+  align-self: center;
+}
+.volumeButton{
+  max-width: 1rem;
+  max-height: 1rem;
+  align-self: center;
+}
+
+.playback__controls {
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+.volume__controls{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-right: 8rem;
 }
 
 /* unholy css to style input type="range" */
@@ -111,7 +150,7 @@ body {
 input[type=range] {
   -webkit-appearance: none;
   background: transparent;
-  width: 100%;
+  max-width: 8rem;
   margin: 0 5px;
 }
 
@@ -149,16 +188,72 @@ input[type=range]::-moz-range-track {
   height: 8.4px;
   cursor: pointer;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0), 0 0 1px rgba(13, 13, 13, 0);
-  background: #ffffff;
-  border-radius: 1.3px;
-  border: 0.2px solid rgba(1, 1, 1, 0);
+  background:transparent;
+  border-radius: 1rem;
+  border: 0.2px solid #fff;
 }
 
 input[type=range]::-moz-range-thumb {
   box-shadow: 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(13, 13, 13, 0);
-  height: 15px;
+  height: 5px;
   width: 15px;
   border-radius: 50px;
-  background: #ffc600;
+  border: 0.3px solid #fff;
+  background: transparent;
   cursor: pointer;
+}
+
+input[name= playbackRate]{
+  max-width: 6rem;
+}
+
+label[for=videos]{
+  margin-top: 1rem;
+}
+
+input[type=file]{
+  margin-left: .5rem;
+}
+
+input[type=file]::file-selector-button{
+  margin-right: 20px;
+  border: none;
+  background: #084cdf;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: grab;
+  transition: background .2s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+@media only screen and (max-width:375px){
+  .player {
+  max-width: 320px;
+  }
+
+  .player__controls{
+    flex-direction: column;
+  }
+  .player__controls > * {
+  flex: 1;
+  }
+
+  .playback__controls {
+      margin-right: 8rem;
+  }
+  .volume__controls{
+    /* display: flex; */
+    gap: .2rem;
+  }
+
+  label[for=videos]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 }
