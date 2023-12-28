@@ -24,7 +24,7 @@ function togglePlay() {
 }
 
 function updateButton() {
-  const icon = this.paused ? '../../assets/images/icons8-play-50.png' : '../../assets/images/icons8-pause-50.png';
+  const icon = this.paused ? './assets/images/icons8-play-50.png' : './assets/images/icons8-pause-50.png';
   while(toggle.firstChild){
     toggle.removeChild(toggle.firstChild)
   }
