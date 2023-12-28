@@ -14,7 +14,7 @@ const previousButton = player.querySelector('.lastButton')
 let videoFile = document.querySelector('#videoFile')
 
 var url;
-var videoArray = ['../../assets/videos/v1.mp4', '../../assets/videos/v2.mp4', '../../assets/videos/v3.mp4', '../../assets/videos/v4.mp4', '../../assets/videos/v5.mp4']
+var videoArray = ['./assets/videos/v1.mp4', './assets/videos/v2.mp4', './assets/videos/v3.mp4', './assets/videos/v4.mp4', './assets/videos/v5.mp4']
 let videoIndex = 0;
 
 /* Build out functions */
