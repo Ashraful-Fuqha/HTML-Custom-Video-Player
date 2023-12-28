@@ -78,7 +78,7 @@ body {
   bottom: 0;
   padding: 5px;
   width: 100%;
-  /* transform: translateY(100%) translateY(-5px); */
+  transform: translateY(100%) translateY(-5px);
   transition: all .3s;
   flex-wrap: wrap;
   background: rgba(0,0,0,0.5);
